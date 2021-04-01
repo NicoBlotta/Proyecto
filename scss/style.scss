@@ -1,0 +1,247 @@
+@import "config";
+@import "menu";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include background;
+  background: $color-primario;
+  width: auto;
+  color: set-text-color($color-primario);
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+// Headings
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($color-primario, 2), 0.5);
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: $color-secundario;
+}
+
+main {
+  padding: 4rem;
+  // height: 100%;
+  min-height: calc(100vh - 60px);
+
+  .icons {
+    margin-top: 1rem;
+
+    a {
+      padding: 0.4rem;
+      @include easeOut;
+
+      &:hover {
+        color: $color-secundario;
+      }
+    }
+  }
+
+  &#home {
+    overflow: hidden;
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+}
+
+.servicios-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "logo-serv subt subt"
+    "servicio1 servicio2 servicio3";
+  grid-template-columns: repeat(3, 1fr);
+
+  .logo-serv {
+    grid-area: logo-serv;
+    margin: auto;
+    border-radius: 50%;
+    border: $color-secundario 3px solid;
+  }
+
+  .subt {
+    grid-area: subt;
+    font-size: 1.5rem;
+  }
+
+  .servicio-1 {
+    grid-area: servicio1;
+  }
+
+  .servicio-2 {
+    grid-area: servicio2;
+  }
+
+  .servicio-3 {
+    grid-area: servicio3;
+  }
+
+  .servicio {
+    background: lighten($color-primario, 5);
+    padding: 0.5rem;
+    border-bottom: $color-secundario 5px solid;
+  }
+}
+
+// Work/Projects
+.projects {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  img {
+    width: 100%;
+    border: 3px #fff solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $color-secundario;
+      @include easeOut;
+    }
+  }
+}
+
+// Contact Page
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+
+  div {
+    font-size: 2rem;
+    border: 3px #fff solid;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    @include easeOut;
+
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background: $color-secundario;
+      color: set-text-color($color-secundario);
+      span {
+        color: set-text-color($color-secundario);
+      }
+    }
+  }
+}
+
+// Button Styles
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $color-secundario;
+    color: set-text-color($color-secundario);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($color-primario, 50);
+  color: #fff;
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($color-primario, 50);
+  color: #333;
+}
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: darken($color-primario, 10);
+  color: set-text-color($color-primario);
+  height: 60px;
+}
+
+@import "mobile";
+
+/* PÁGINA 404 */
+
+.background404 {
+  background: linear-gradient(45deg, #8500ff, #5acaff);
+  height: 100vh;
+}
+
+#container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../img/404.png"), $color-primario;}
+
+#container .content {
+  max-width: 600px;
+  text-align: center;
+}
+
+#container .content h2 {
+  font-size: 18vw;
+  font-weight: 700;
+  line-height: 1em;
+}
+
+#container .content h4 {
+  position: relative;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #111;
+  background: #fff;
+  font-weight: 300;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+#container .content p {
+  font-size: 1.2em;
+  padding: 0 20px;
+}
+
+#container .content a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 25px;
+  background: $color-secundario;
+  border-radius: 30px;
+  color: #fff;
+  margin-top: 30px;
+  font-weight: 600;
+}
